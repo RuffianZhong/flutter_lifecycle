@@ -62,7 +62,7 @@ Add flutter_lifecycle_aware dependency to pubspec.yaml file
 ```
 dependencies:
 
-  # flutter生命周期
+  # flutter lifecycle
   flutter_lifecycle_aware: ^0.0.1
 ```
 
