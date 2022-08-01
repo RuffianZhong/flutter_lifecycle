@@ -61,7 +61,7 @@ pubspec.yaml 文件中添加 flutter_lifecycle 依赖
 dependencies:
 
   # flutter生命周期
-  flutter_lifecycle_aware: ^0.0.1
+  flutter_lifecycle_aware: ^0.0.2
 ```
 
 #### 2.2 创建观察者
