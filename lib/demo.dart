@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_lifecycle/lifecycle.dart';
-import 'package:flutter_lifecycle/lifecycle_observer.dart';
-import 'package:flutter_lifecycle/lifecycle_owner.dart';
-import 'package:flutter_lifecycle/lifecycle_route_observer.dart';
-import 'package:flutter_lifecycle/lifecycle_state.dart';
+import 'package:flutter_lifecycle_aware/lifecycle.dart';
+import 'package:flutter_lifecycle_aware/lifecycle_observer.dart';
+import 'package:flutter_lifecycle_aware/lifecycle_owner.dart';
+import 'package:flutter_lifecycle_aware/lifecycle_route_observer.dart';
+import 'package:flutter_lifecycle_aware/lifecycle_state.dart';
 
 void main() {
   runApp(const MyApp());

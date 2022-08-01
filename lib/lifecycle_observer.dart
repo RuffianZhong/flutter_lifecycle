@@ -1,5 +1,5 @@
-import 'package:flutter_lifecycle/lifecycle_owner.dart';
-import 'package:flutter_lifecycle/lifecycle_state.dart';
+import 'package:flutter_lifecycle_aware/lifecycle_owner.dart';
+import 'package:flutter_lifecycle_aware/lifecycle_state.dart';
 
 /// 生命周期观察者
 /// 通过 onLifecycleChanged 监听 生命周期变化

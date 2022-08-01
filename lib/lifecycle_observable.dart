@@ -1,5 +1,5 @@
-import 'package:flutter_lifecycle/lifecycle_observer.dart';
-import 'package:flutter_lifecycle/lifecycle_state.dart';
+import 'package:flutter_lifecycle_aware/lifecycle_observer.dart';
+import 'package:flutter_lifecycle_aware/lifecycle_state.dart';
 
 /// 生命周期被观察者
 /// 管理观察者对象：添加观察者，移除观察者，通知观察者

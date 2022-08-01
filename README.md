@@ -1,88 +1,91 @@
 # flutter_lifecycle
 
-### 1.简介
+## English | [中文](https://github.com/RuffianZhong/flutter_lifecycle/README_CN.md)
 
-#### 1.1 描述
+### 1.Introduction
 
-flutter_lifecycle 借鉴原生平台 Android/iOS 的生命周期思想，实现了在 Flutter 上的一套生命周期系统。开发者可以在任何你需要的地方感知 StatefulWidget
-的生命周期
+#### 1.1 Describe
+
+flutter_lifecycle draws on the lifecycle idea of the native platform Android/iOS and make a
+lifecycle system on Flutter. Developers can perceive StatefulWidget's lifecycle wherever you need
 
 ```dart
-/// 生命周期状态
+/// LifecycleState
 enum LifecycleState {
-  /// 描述：初始化状态
-  /// 频率：单次调用
-  /// 说明：在 StatefulWidget 创建的初始化阶段触发
+  /// describe：init
+  /// frequency：single
+  /// explanation：Triggered during the initialization phase of StatefulWidget creation
   onInit,
 
-  /// 描述：创建完成状态
-  /// 频率：单次调用
-  /// 说明：StatefulWidget 创建完成，第一帧渲染完成触发
+  /// describe：created
+  /// frequency：single
+  /// explanation：StatefulWidget is created and triggered when the first frame is rendered
   onCreate,
 
-  /// 描述：开始执行
-  /// 频率：（可能）多次调用
-  /// 说明：StatefulWidget 开始或重新 可见（暂时不可交互）；例如：首次进入页面时/非全屏界面消失时；与 #onStop 成对
+  /// describe：start
+  /// frequency：（possibly）multiple
+  /// explanation：StatefulWidget starts or becomes visible again (temporarily non-interactive); eg: when the page is first entered / when the non-fullscreen interface disappears; paired with #onStop
   onStart,
 
-  /// 描述：开始交互
-  /// 频率：（可能）多次调用
-  /// 说明：StatefulWidget 开始或重新 可交互；例如：首次进入页面可交互时/非全屏界面消失时；与 #onPause 成对
+  /// describe：resume
+  /// frequency：（possibly）multiple
+  /// explanation：StatefulWidget starts or re-interacts; eg: when the page is interactive for the first time/non-fullscreen interface disappears; paired with #onPause
   onResume,
 
-  /// 描述：挂起/暂停执行
-  /// 频率：（可能）多次调用
-  /// 说明：StatefulWidget 可见但不可交互；在 StatefulWidget 失去焦点/进入后台/被系统或自定义的 非 全屏弹窗遮挡时调用；与 #onResume 成对
+  /// describe：pause
+  /// frequency：（possibly）multiple
+  /// explanation：StatefulWidget is visible but not interactive; called when the StatefulWidget loses focus/enters the background/is blocked by the system or a custom non-fullscreen popup; paired with #onResume
   onPause,
 
-  /// 描述：停止执行
-  /// 频率：（可能）多次调用
-  /// 说明：StatefulWidget 不可见 & 不可交互；在 StatefulWidget 完全离开用户视野/进入后台/被系统或自定义的全屏弹窗遮挡时调用；与 #onStart 成对
+  /// describe：stop
+  /// frequency：（possibly）multiple
+  /// explanation：StatefulWidget is invisible & non-interactive; called when the StatefulWidget completely leaves the user's field of view/enters the background/is blocked by the system or a custom full-screen popup; paired with #onStart
   onStop,
 
-  /// 描述：销毁
-  /// 频率：单次调用
-  /// 说明：StatefulWidget 销毁/退出程序时调用
+  /// describe：destroy
+  /// frequency：single
+  /// explanation：Called when StatefulWidget destroys/exits the program
   onDestroy;
 }
 ```
 
-#### 1.2 图解
+#### 1.2 diagram
 
 ![](https://github.com/RuffianZhong/flutter_lifecycle/blob/master/assets/lifecycle.png)
 
-### 2.使用
+### 2.Use
 
-#### 2.1 依赖
+#### 2.1 Dependency
 
-pubspec.yaml 文件中添加 flutter_lifecycle 依赖
+Add flutter_lifecycle_aware dependency to pubspec.yaml file
 
 ```
 dependencies:
 
   # flutter生命周期
-  flutter_lifecycle: ^0.0.1
+  flutter_lifecycle_aware: ^0.0.1
 ```
 
-#### 2.2 创建观察者
+#### 2.2 Create an observer
 
-在任何你想要监听 StatefulWidget 生命周期的地方继承 ```LifecycleObserver``` 观察者，实现 ```onLifecycleChanged``` 方法
+Inherit the ```LifecycleObserver``` observer wherever you want to monitor the StatefulWidget's
+lifecycle and implement the ```onLifecycleChanged``` method
 
 ```dart
-///需要监听StatefulWidget生命周期的地方
+///Where you need to monitor the StatefulWidget lifecycle
 class AViewModel extends LifecycleObserver {
-  ///需要释放的资源
+  ///resources to be released
   ScrollController controller = ScrollController();
 
-  ///初始化数据
+  ///initData
   void initData() {}
 
-  ///销毁/释放资源
+  ///destroy/release resources
   void destroy() {
     controller.dispose();
   }
 
-  ///生命周期回调监听
+  ///Lifecycle callback listener
   @override
   void onLifecycleChanged(LifecycleOwner owner, LifecycleState state) {
     if (state == LifecycleState.onCreate) {
@@ -94,18 +97,18 @@ class AViewModel extends LifecycleObserver {
 }
 ```
 
-#### 2.3 使用 Lifecycle 并且绑定观察者对象
+#### 2.3 Use Lifecycle and bind observer objects
 
-在 StatefulWidget 中混入 ```Lifecycle``` ,绑定 ```LifecycleObserver``` 实现生命周期感知
+Mixin ```Lifecycle``` in StatefulWidget and bind ```LifecycleObserver``` to realize lifecycle awareness
 
 ```dart
-///StatefulWidget中混入Lifecycle然后绑定LifecycleObserver
+///Mixin Lifecycle into StatefulWidget and bind LifecycleObserver
 class _MyPageState extends State<MyPage> with Lifecycle {
   @override
   void initState() {
     super.initState();
 
-    ///绑定LifecycleObserver
+    ///bind LifecycleObserver
     getLifecycle().addObserver(AViewModel());
   }
 
@@ -116,9 +119,9 @@ class _MyPageState extends State<MyPage> with Lifecycle {
 }
 ```
 
-#### 2.4 辅助配置
+#### 2.4 Auxiliary configuration
 
-在 MaterialApp 中添加辅助配置 ```LifecycleRouteObserver.routeObserver```
+Add auxiliary configuration in MaterialApp ```LifecycleRouteObserver.routeObserver```
 
 ```dart
 class MyApp extends StatelessWidget {
@@ -128,7 +131,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
 
-      /// 生命周期辅助设置
+      /// Lifecycle Assist Settings
       navigatorObservers: [LifecycleRouteObserver.routeObserver],
       home: const MyPage(),
     );

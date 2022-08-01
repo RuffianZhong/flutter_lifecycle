@@ -1,7 +1,7 @@
-import 'package:flutter_lifecycle/lifecycle_observable.dart';
-import 'package:flutter_lifecycle/lifecycle_observer.dart';
-import 'package:flutter_lifecycle/lifecycle_owner.dart';
-import 'package:flutter_lifecycle/lifecycle_state.dart';
+import 'package:flutter_lifecycle_aware/lifecycle_observable.dart';
+import 'package:flutter_lifecycle_aware/lifecycle_observer.dart';
+import 'package:flutter_lifecycle_aware/lifecycle_owner.dart';
+import 'package:flutter_lifecycle_aware/lifecycle_state.dart';
 
 /// 生命周期可观察对象（被观察者）实现类
 /// 管理观察者对象

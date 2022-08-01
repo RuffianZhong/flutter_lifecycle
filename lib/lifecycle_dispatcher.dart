@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_lifecycle/lifecycle_delegate.dart';
-import 'package:flutter_lifecycle/lifecycle_observable.dart';
-import 'package:flutter_lifecycle/lifecycle_observable_impl.dart';
-import 'package:flutter_lifecycle/lifecycle_owner.dart';
-import 'package:flutter_lifecycle/lifecycle_route_observer.dart';
-import 'package:flutter_lifecycle/lifecycle_state.dart';
+import 'package:flutter_lifecycle_aware/lifecycle_delegate.dart';
+import 'package:flutter_lifecycle_aware/lifecycle_observable.dart';
+import 'package:flutter_lifecycle_aware/lifecycle_observable_impl.dart';
+import 'package:flutter_lifecycle_aware/lifecycle_owner.dart';
+import 'package:flutter_lifecycle_aware/lifecycle_route_observer.dart';
+import 'package:flutter_lifecycle_aware/lifecycle_state.dart';
 
 /// 生命周期分发核心实现类
 ///

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_lifecycle/lifecycle_dispatcher.dart';
-import 'package:flutter_lifecycle/lifecycle_observable.dart';
-import 'package:flutter_lifecycle/lifecycle_owner.dart';
+import 'package:flutter_lifecycle_aware/lifecycle_dispatcher.dart';
+import 'package:flutter_lifecycle_aware/lifecycle_observable.dart';
+import 'package:flutter_lifecycle_aware/lifecycle_owner.dart';
 
 ///
 /// 具备生命周期感知的 StatefulWidget
