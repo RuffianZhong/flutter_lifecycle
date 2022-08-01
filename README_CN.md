@@ -49,7 +49,7 @@ enum LifecycleState {
 
 #### 1.2 图解
 
-![](https://github.com/RuffianZhong/flutter_lifecycle/blob/master/assets/lifecycle.png)
+![](https://github.com/RuffianZhong/flutter_lifecycle/blob/master/assets/lifecycle_cn.png)
 
 ### 2.使用
 

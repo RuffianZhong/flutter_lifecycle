@@ -1,6 +1,6 @@
 # flutter_lifecycle
 
-## English | [中文](https://github.com/RuffianZhong/flutter_lifecycle/README_CN.md)
+## English | [中文](https://github.com/RuffianZhong/flutter_lifecycle/blob/master/README_CN.md)
 
 ### 1.Introduction
 
