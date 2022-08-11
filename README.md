@@ -63,7 +63,7 @@ Add flutter_lifecycle_aware dependency to pubspec.yaml file
 dependencies:
 
   # flutter lifecycle
-  flutter_lifecycle_aware: ^0.0.2
+  flutter_lifecycle_aware: ^0.0.3
 ```
 
 #### 2.2 Create an observer
